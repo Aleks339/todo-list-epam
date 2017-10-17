@@ -8,6 +8,7 @@ var todo = document.createElement('div');
 var title = document.createElement('h1');
 title.style.color = "green";
 title.style.fontSize = "80px";
+title.style.fontStyle = 'italic';
 title.innerHTML = "Todolist";
 
 //div, all tasks filter are inside of it
@@ -108,7 +109,22 @@ add.addEventListener("click", function(){
       itemWrapper.setAttribute('data-complete', '0');
     }
   }
+  //value of todo item
   textItem.innerHTML = item.value;
+
+  //time tag
+  var time = document.createElement('time');
+  time.setAttribute('datetime', '2017-11-22T18:30');
+
+  // time input
+  var timeInput = document.createElement('input');
+  timeInput.setAttribute('type', 'date');
+  timeInput.style.marginBottom = '15px';
+
+  timeInput.addEventListener("click", function(){
+    var deadline = document.createElement('span');
+    deadline.innerHTML = timeInput.value;
+  });
 
   //push the elements into the task array
   taskArray.push(itemWrapper);
@@ -118,6 +134,9 @@ add.addEventListener("click", function(){
   itemWrapper.appendChild(checkbox);
   itemWrapper.appendChild(textItem);
   itemWrapper.appendChild(x);
+  itemWrapper.appendChild(time);
+  time.appendChild(timeInput);
+  todo.appendChild(deadline);
 });
 
 //append elements
