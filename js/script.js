@@ -79,17 +79,17 @@ addItem.innerHTML = "Add";
 //what will happen if we click on add-task button?
 addItem.addEventListener("click", function(){
   //div to wrap items of todolist
-  this.itemWrapper = document.createElement('div');
+  var itemWrapper = document.createElement('div');
   itemWrapper.setAttribute('class', 'todo_item-wrapper');
   itemWrapper.setAttribute('data-complete', '0');
 
   //todolist checkbox
-  this.checkbox = document.createElement('input');
+  var checkbox = document.createElement('input');
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("class", "todo_item-wrapper--checkbox");
 
   //button to remove item
-  this.closeItem = document.createElement('span');
+  var closeItem = document.createElement('span');
   closeItem.innerHTML = ' [X]';
   closeItem.setAttribute('class', 'todo_item-wrapper--close');
 
@@ -98,7 +98,7 @@ addItem.addEventListener("click", function(){
     todo.removeChild(itemWrapper);
   }
   //todolist text
-  this.textItem = document.createElement('span');
+  var textItem = document.createElement('span');
   //todolist text click
   checkbox.onclick = function() {
     if(this.checked){
@@ -117,9 +117,9 @@ addItem.addEventListener("click", function(){
   textItem.innerHTML = item.value;
 
   //deadline span
-  this.timeSpan = document.createElement('span');
+  var timeSpan = document.createElement('span');
   timeSpan.innerHTML = timeInput.value;
-  this.newDate = new Date();
+  var newDate = new Date();
   function Date(){
     this.innerHTML = timeInput.value;
   }

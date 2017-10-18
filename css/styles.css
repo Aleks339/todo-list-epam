@@ -1,0 +1,22 @@
+
+.todo_title{
+  color: green;
+  font-size: 80px;
+  font-style: italic;
+}
+.todo_time--input{
+  margin-bottom: 30px;
+}
+.todo_button-task{
+  margin-bottom: 20px;
+}
+.todo_item-wrapper{
+  display: block;
+  margin: 10px;
+}
+.todo_item-wrapper--close{
+  color: red;
+}
+.todo_item-wrapper--close:hover{
+  cursor:pointer;
+}
