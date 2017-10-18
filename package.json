@@ -1,0 +1,23 @@
+{
+  "name": "todo-list-epam.git",
+  "version": "1.0.0",
+  "description": "todo list",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleks339/todo-list-epam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aleks339/todo-list-epam/issues"
+  },
+  "homepage": "https://github.com/Aleks339/todo-list-epam#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  }
+}

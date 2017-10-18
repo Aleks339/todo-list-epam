@@ -3,22 +3,33 @@ var taskArray = [];
 
 //main div.
 var todo = document.createElement('div');
+todo.setAttribute('class', 'todo');
 
 //header
 var title = document.createElement('h1');
-title.style.color = "green";
-title.style.fontSize = "80px";
-title.style.fontStyle = 'italic';
+title.setAttribute('class', 'todo_title');
 title.innerHTML = "Todolist";
+
+//time tag
+var time = document.createElement('time');
+time.setAttribute('class', 'todo_time');
+
+// time input
+var timeInput = document.createElement('input');
+timeInput.setAttribute('type', 'date');
+timeInput.setAttribute('class', 'todo_time--input');
 
 //div, all tasks filter are inside of it
 var buttonTasks = document.createElement('div');
-buttonTasks.style.marginBottom = '20px';
+buttonTasks.setAttribute('class', 'todo_button-task');
 
 //task filters
 var buttonTaskCompleted = document.createElement('button');
+buttonTaskCompleted.setAttribute('class', 'todo_button-task--button-task-completed');
 var buttonTaskUnCompleted = document.createElement('button');
+buttonTaskUnCompleted.setAttribute('class', 'todo_button-task--button-task-uncompleted');
 var buttonTaskAll = document.createElement('button');
+buttonTaskAll.setAttribute('class', 'todo_button-task--button-task-all');
 
 //filter with completed tasks
 buttonTaskCompleted.onclick = function(){
@@ -56,45 +67,38 @@ buttonTaskAll.innerHTML = 'All tasks';
 
 //input type text to fill it by our tasks
 var item = document.createElement('input');
+item.setAttribute('class', 'todo_item');
 item.setAttribute("type", "text");
 item.setAttribute('size', '35');
-item.setAttribute("class", "inputValue");
 
 //button to add tasks
-var add = document.createElement('button');
-add.setAttribute("type", "button");
-add.innerHTML = "Add";
+var addItem = document.createElement('button');
+addItem.setAttribute("type", "button");
+addItem.innerHTML = "Add";
 
 //what will happen if we click on add-task button?
-add.addEventListener("click", function(){
+addItem.addEventListener("click", function(){
   //div to wrap items of todolist
-  var itemWrapper = document.createElement('div');
-  itemWrapper.style.display = "block";
-  itemWrapper.style.margin = "10px";
+  this.itemWrapper = document.createElement('div');
+  itemWrapper.setAttribute('class', 'todo_item-wrapper');
   itemWrapper.setAttribute('data-complete', '0');
 
   //todolist checkbox
-  var checkbox = document.createElement('input');
+  this.checkbox = document.createElement('input');
   checkbox.setAttribute("type", "checkbox");
-  checkbox.setAttribute("class", "checkbox");
+  checkbox.setAttribute("class", "todo_item-wrapper--checkbox");
 
   //button to remove item
-  var x = document.createElement('span');
-  x.innerHTML = ' [X]';
-  x.style.color = 'red';
-  //hover the button to remove item
-  x.onmouseover = function() {
-    x.style.cursor = 'pointer';
-  }
-  x.onmouseout = function() {
-    x.style.cursor = 'auto';
-  }
+  this.closeItem = document.createElement('span');
+  closeItem.innerHTML = ' [X]';
+  closeItem.setAttribute('class', 'todo_item-wrapper--close');
+
   //click the button to remove item
-  x.onclick = function(){
+  closeItem.onclick = function(){
     todo.removeChild(itemWrapper);
   }
   //todolist text
-  var textItem = document.createElement('span');
+  this.textItem = document.createElement('span');
   //todolist text click
   checkbox.onclick = function() {
     if(this.checked){
@@ -112,19 +116,13 @@ add.addEventListener("click", function(){
   //value of todo item
   textItem.innerHTML = item.value;
 
-  //time tag
-  var time = document.createElement('time');
-  time.setAttribute('datetime', '2017-11-22T18:30');
-
-  // time input
-  var timeInput = document.createElement('input');
-  timeInput.setAttribute('type', 'date');
-  timeInput.style.marginBottom = '15px';
-
-  timeInput.addEventListener("click", function(){
-    var deadline = document.createElement('span');
-    deadline.innerHTML = timeInput.value;
-  });
+  //deadline span
+  this.timeSpan = document.createElement('span');
+  timeSpan.innerHTML = timeInput.value;
+  this.newDate = new Date();
+  function Date(){
+    this.innerHTML = timeInput.value;
+  }
 
   //push the elements into the task array
   taskArray.push(itemWrapper);
@@ -133,18 +131,18 @@ add.addEventListener("click", function(){
   todo.appendChild(itemWrapper);
   itemWrapper.appendChild(checkbox);
   itemWrapper.appendChild(textItem);
-  itemWrapper.appendChild(x);
-  itemWrapper.appendChild(time);
-  time.appendChild(timeInput);
-  todo.appendChild(deadline);
+  itemWrapper.appendChild(timeSpan);
+  itemWrapper.appendChild(closeItem);
 });
 
 //append elements
 document.body.appendChild(todo);
 todo.appendChild(title);
+todo.appendChild(time);
+time.appendChild(timeInput);
 todo.appendChild(buttonTasks);
 buttonTasks.appendChild(buttonTaskCompleted);
 buttonTasks.appendChild(buttonTaskUnCompleted);
 buttonTasks.appendChild(buttonTaskAll);
 todo.appendChild(item);
-todo.appendChild(add);
+todo.appendChild(addItem);
