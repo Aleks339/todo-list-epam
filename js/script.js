@@ -132,7 +132,6 @@ window.onload = function(){
     //deadline span
     var timeSpan = document.createElement('span');
     timeSpan.innerHTML = timeInput.value;
-    var newDate = new Date();
     function Date(){
       this.innerHTML = ' ' + timeInput.value;
       //filter with tasks planned on week
@@ -145,7 +144,6 @@ window.onload = function(){
           }
         }
       });
-
       //filter with tasks planned on day
       buttonTasksPlannedOnTomorrow.addEventListener("click", function(){
         for(var i = 0; i < 1; i++){
@@ -157,6 +155,8 @@ window.onload = function(){
         }
       });
     };
+
+    Date();
 
     //push the elements into the task array
     taskArray.push(itemWrapper);
