@@ -137,7 +137,7 @@ window.onload = function(){
       this.innerHTML = ' ' + timeInput.value;
       //filter with tasks planned on week
       buttonTasksPlannedOnWeek.addEventListener("click", function(){
-        for(i = 2; i < 7; i++){
+        for(var i = 2; i < 7; i++){
           if (taskArray[i]){
             taskArray[i].style.display = 'block';
           }else{
@@ -148,7 +148,7 @@ window.onload = function(){
 
       //filter with tasks planned on day
       buttonTasksPlannedOnTomorrow.addEventListener("click", function(){
-        for(i = 0; i < 1; i++){
+        for(var i = 0; i < 1; i++){
           if (taskArray[i]){
             taskArray[i].style.display = 'block';
           }else{
