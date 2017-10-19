@@ -137,11 +137,24 @@ window.onload = function(){
       this.innerHTML = ' ' + timeInput.value;
       //filter with tasks planned on week
       buttonTasksPlannedOnWeek.addEventListener("click", function(){
-          if (timeInput.value = newDate.getDate() + 7){
-            this.style.display = 'block';
+        for(i = 0; i < taskArray.length; i++){
+          if (newDate.value + 7){
+            taskArray[i].style.display = 'block';
           }else{
-            this.style.display = 'none';
+            taskArray[i].style.display = 'none';
           }
+        }
+      });
+
+      //filter with tasks planned on day
+      buttonTasksPlannedOnTomorrow.addEventListener("click", function(){
+        for(i = 0; i < taskArray.length; i++){
+          if (newDate.value + 1){
+            taskArray[i].style.display = 'block';
+          }else{
+            taskArray[i].style.display = 'none';
+          }
+        }
       });
     };
 
