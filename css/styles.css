@@ -4,6 +4,10 @@
   font-size: 80px;
   font-style: italic;
 }
+.todo_deadline-title{
+  color:blue;
+  font-size: 15px;
+}
 .todo_time--input{
   margin-bottom: 30px;
 }
